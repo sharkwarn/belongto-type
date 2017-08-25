@@ -1,8 +1,9 @@
 const belontTo=(data)=>{
-  if( isNaN(data) ){
-    return 'NaN'
-  }
   const typeStr = Object.prototype.toString.call(data);
-  return typeStr.replace(/\[object\s(.*)\]/g,'$1');
+  const str =  typeStr.replace(/\[object\s(.*)\]/g,'$1');
+  if( str == 'Number' && isNaN(data) ){
+    return 'NaN';
+  }
+  return str;
 }
 export default belontTo;
